@@ -1,0 +1,8 @@
+/node_modules
+.env
+
+PORT=8000
+DB=my_db
+#atlas connection
+ATLAS_USERNAME=YOUR_ATLAS_USERNAME
+ATLASE_PASSWORD=YOUR_ATLAS_PASSWORD
