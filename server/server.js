@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) =>{res.send("sanity test")})
+app.get('/', (req, res) =>{res.send("sanity test 🦄🦄🦄🦄🦄")})
 app.get('/success', (req, res) =>{res.send("success")})
 
 // 3 routes
