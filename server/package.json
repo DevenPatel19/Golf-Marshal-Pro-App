@@ -1,15 +1,16 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "author":"Deven Patel <deven.h.j.patel+python@gmail.com",
   "main": "server.js",
   "type": "module",
-  "scripts": {
+    "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon start"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
