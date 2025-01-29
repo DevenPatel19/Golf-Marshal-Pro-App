@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import PersonCard from './components/PersonCard';
 
@@ -8,16 +8,36 @@ function App() {
 
   return (
     <div className="App">
-      <PersonCard firstName={"Instructor Bob"} age={"32"} hairColo={"purple"} msg={"Bob!"}/>
+      <PersonCard 
+        firstName={"Instructor Bob"} 
+        age={"32"} 
+        hairColor={"red"} 
+        hairLikes={0}/>
+
       <header className="App-header">
+
         <h1>{liveTitle}</h1>
-      <PersonCard firstName={"Instructor Winter"} age={"32"} hairColo={"purple"} msg={"Winter!"}/>
-      <PersonCard firstName={"Instructor Heidi"} age={"32"} hairColo={"purple"}  msg={"Heidi!"}/>
+
+      <PersonCard 
+        firstName={"Instructor Winter"} 
+        age={"32"} 
+        hairColor={"purple"} 
+        hairLikes={4}/>
+
+      <PersonCard 
+        firstName={"Instructor Heidi"} 
+        age={"32"} 
+        hairColor={"midnight"}  
+        hairLikes={4}/>
       
       
       </header>
       
-      <PersonCard firstName={"Instructor Narciso"} age={"32"} hairColo={"purple"}  msg={"Ciso"}/>
+      <PersonCard 
+        firstName={"Instructor Narciso"} 
+        age={"32"} 
+        hairColor={"black"}  
+        hairLikes={0}/>
     </div>
   );
 }
