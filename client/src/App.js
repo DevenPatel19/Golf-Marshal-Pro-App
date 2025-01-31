@@ -1,6 +1,7 @@
 
 import './App.css';
 import PersonCard from './components/PersonCard';
+import TTimeForm from './views/TTimeForm';
 
 function App() {
 
@@ -8,17 +9,19 @@ function App() {
 
   return (
     <div className="App">
-      <PersonCard 
+      <TTimeForm />
+      {/* <PersonCard   
         firstName={"Instructor Bob"} 
         age={"32"} 
         hairColor={"red"} 
         hairLikes={0}/>
+        */}
 
       <header className="App-header">
 
         <h1>{liveTitle}</h1>
 
-      <PersonCard 
+      {/*<PersonCard 
         firstName={"Instructor Winter"} 
         age={"32"} 
         hairColor={"purple"} 
@@ -29,7 +32,7 @@ function App() {
         age={"32"} 
         hairColor={"midnight"}  
         hairLikes={4}/>
-      
+      */}
       
       </header>
       
@@ -38,6 +41,7 @@ function App() {
         age={"32"} 
         hairColor={"black"}  
         hairLikes={0}/>
+
     </div>
   );
 }
