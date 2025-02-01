@@ -1,4 +1,3 @@
-
 import './App.css';
 import PersonCard from './components/PersonCard';
 import TTimeForm from './views/TTimeForm';
@@ -26,13 +25,13 @@ function App() {
         age={"32"} 
         hairColor={"purple"} 
         hairLikes={4}/>
+        */}
 
       <PersonCard 
         firstName={"Instructor Heidi"} 
         age={"32"} 
         hairColor={"midnight"}  
         hairLikes={4}/>
-      */}
       
       </header>
       

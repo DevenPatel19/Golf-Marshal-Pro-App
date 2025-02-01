@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import TeeTimeDisplayComponent from '../components/TeeTimeDisplayComponent';
 
 const TTimeForm = () => {
 
@@ -58,6 +59,9 @@ const TTimeForm = () => {
 			</div>
 			<button> Submit Tee Time Request</button>
 		</form>
+	
+	<TeeTimeDisplayComponent memberName={memberName} tee_Time={tee_Time} guests={guests} memberStatus={memberStatus} />
+
 	</fieldset>
 	</>
   )

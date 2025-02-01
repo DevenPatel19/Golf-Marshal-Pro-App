@@ -39,7 +39,8 @@ const PersonCard = ({ firstName, age, hairColor, hairLikes }) => {
 	};
 
   return (
-	<div>
+	<fieldset>
+		<legend>PersonCard.jsx</legend>
 		<h1 style={{ color:"red" }}>{firstName}</h1>
 		<p>Age: {age}</p>
 		<p>Hair color: {hairColor}</p>
@@ -52,7 +53,7 @@ const PersonCard = ({ firstName, age, hairColor, hairLikes }) => {
 
 		</div>
 
-	</div>
+	</fieldset>
   )
 }
 
