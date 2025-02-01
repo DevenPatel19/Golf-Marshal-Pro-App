@@ -38,7 +38,7 @@ const TTimeForm = () => {
 				<label>Tee Time: </label>
 				<input 
 				type="datetime-local" 
-				name="tee_Time" 
+				name="tee_Time"  
 				value={tee_Time} 
 				onChange={(e)=>{setTee_Time(e.target.value)}} />
 			</div><div>
