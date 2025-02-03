@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import TeeTimeDisplayComponent from '../components/TeeTimeDisplayComponent';
 
 const TTimeForm = () => {
@@ -13,6 +13,9 @@ const TTimeForm = () => {
 	const [tee_Time, setTee_Time] = useState(0);
 	const [guests, setGuests] = useState(0);
 	const [memberStatus, setMemberStatus] = useState(true)
+	
+	const [submittedTrue, setSubmittedTrue] = useState(false);
+	
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -20,12 +23,28 @@ const TTimeForm = () => {
 		
 		const newTeeTime = { memberName, tee_Time, guests,  memberStatus };
 		console.log(newTeeTime)
+
+		
+		
+		setSubmittedTrue( !submittedTrue );
 	}
+
+const formMsg = () => {
+		if ( submittedTrue ) {
+			return "Thank you for scheduling, please see the Marshal to check in.";
+		} else {
+			return " Please schedule a tee time."
+		}
+	};
+
+
+	
 
   return (
 	<>
 	<fieldset>
 		<legend>TTimeForm.jsx</legend>
+		<h2>{formMsg()}</h2>
 		<form onSubmit={ handleSubmit }>
 			<div>
 				<label>Member Name: </label>
@@ -34,6 +53,10 @@ const TTimeForm = () => {
 				name="memberName" 
 				value={memberName} 
 				onChange={(e)=>{setMemberName(e.target.value)}} />
+				{ memberName.length < 2 ?
+				<p style ={{color:"red"}}>Member Name must be at leaset 2 letters long</p> :
+				<></>
+				}
 			</div>
 			<div>
 				<label>Tee Time: </label>
@@ -51,6 +74,14 @@ const TTimeForm = () => {
 				value={guests} 
 				onChange={(e)=>{setGuests(e.target.value)}} />
 			</div>
+			{guests > 3   ?
+			<p style={{color: "red"}}> You can only add up to 3 people for a Foursome</p> :
+			<></>
+			}
+			{guests < 0 ?
+			<p style={{color: "red"}}> You can't have less than 0 partners, it's weird</p>:
+			<></>
+			}
 			<div>
 				<label>Member Status:  </label>
 				<input 
@@ -58,6 +89,11 @@ const TTimeForm = () => {
 				name="memberStatus" 
 				value={memberStatus} 
 				onChange={(e)=>{setMemberStatus(e.target.value)}} />
+				{memberStatus !== true ?
+				<p style={{color: "red"}}> You must be in good standing to play.</p> :
+				<></>
+
+				}
 				
 			</div>
 			<button> Submit Tee Time Request</button>

@@ -18,7 +18,7 @@ function App() {
 
       <header className="App-header">
 
-        <h1>{liveTitle}</h1>
+        {/* <h1>{liveTitle}</h1> */}
 
       {/*<PersonCard 
         firstName={"Instructor Winter"} 
@@ -27,20 +27,20 @@ function App() {
         hairLikes={4}/>
         */}
 
-      <PersonCard 
+      {/* <PersonCard  
         firstName={"Instructor Heidi"} 
         age={"32"} 
         hairColor={"midnight"}  
         hairLikes={4}/>
-      
+      */}
       </header>
       
-      <PersonCard 
+      {/* <PersonCard  
         firstName={"Instructor Narciso"} 
         age={"32"} 
         hairColor={"black"}  
         hairLikes={0}/>
-
+*/}
     </div>
   );
 }
