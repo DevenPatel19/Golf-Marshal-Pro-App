@@ -13,7 +13,7 @@ const TTimeForm = () => {
 	const [tee_Time, setTee_Time] = useState(0);
 	const [guests, setGuests] = useState(0);
 	const [memberStatus, setMemberStatus] = useState(true)
-	
+	const [tTimeList, setTTimeList] = useState([]);
 	const [submittedTrue, setSubmittedTrue] = useState(false);
 	
 
@@ -24,8 +24,10 @@ const TTimeForm = () => {
 		const newTeeTime = { memberName, tee_Time, guests,  memberStatus };
 		console.log(newTeeTime)
 
-		
-		
+		setMemberName("");
+		setTee_Time(0);
+		setGuests(0);
+		setMemberStatus(true);
 		setSubmittedTrue( !submittedTrue );
 	}
 
@@ -37,7 +39,21 @@ const formMsg = () => {
 		}
 	};
 
+const handleMemberName = (e) => {
+	setMemberName(e.target.value)
+};
 
+const handletee_Time = (e) => {
+	setTee_Time(e.target.value)
+};
+
+const handleGuests = (e) => {
+	setGuests(e.target.value)
+};
+
+const handleMemberStatus = (e) => {
+	setMemberStatus(e.target.value)
+};
 	
 
   return (
@@ -52,7 +68,7 @@ const formMsg = () => {
 				type="text" 
 				name="memberName" 
 				value={memberName} 
-				onChange={(e)=>{setMemberName(e.target.value)}} />
+				onChange={handleMemberName} />
 				{ memberName.length < 2 ?
 				<p style ={{color:"red"}}>Member Name must be at leaset 2 letters long</p> :
 				<></>
@@ -64,7 +80,7 @@ const formMsg = () => {
 				type="datetime-local" 
 				name="tee_Time"  
 				value={tee_Time} 
-				onChange={(e)=>{setTee_Time(e.target.value)}} />
+				onChange={handletee_Time} />
 			</div>
 			<div>
 				<label>Number of Guests: </label>
@@ -72,7 +88,7 @@ const formMsg = () => {
 				type="number" 
 				name="guests" 
 				value={guests} 
-				onChange={(e)=>{setGuests(e.target.value)}} />
+				onChange={handleGuests} />
 			</div>
 			{guests > 3   ?
 			<p style={{color: "red"}}> You can only add up to 3 people for a Foursome</p> :
@@ -88,7 +104,7 @@ const formMsg = () => {
 				type="text" 
 				name="memberStatus" 
 				value={memberStatus} 
-				onChange={(e)=>{setMemberStatus(e.target.value)}} />
+				onChange={handleMemberStatus} />
 				{memberStatus !== true ?
 				<p style={{color: "red"}}> You must be in good standing to play.</p> :
 				<></>
@@ -102,6 +118,7 @@ const formMsg = () => {
 	<TeeTimeDisplayComponent memberName={memberName} tee_Time={tee_Time} guests={guests} memberStatus={memberStatus} />
 
 	</fieldset>
+		
 	</>
   )
 }

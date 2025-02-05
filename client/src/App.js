@@ -1,13 +1,17 @@
 import './App.css';
-import PersonCard from './components/PersonCard';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+// import PersonCard from './components/PersonCard';
 import TTimeForm from './views/TTimeForm';
 
 function App() {
 
-  const liveTitle = "Sanity Test"
+  // const liveTitle = "Sanity Test"
 
   return (
     <div className="App">
+      <Header />
+      <Navbar />
       <TTimeForm />
       {/* <PersonCard   
         firstName={"Instructor Bob"} 
