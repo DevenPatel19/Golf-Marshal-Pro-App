@@ -21,8 +21,11 @@ const TTimeForm = () => {
 		e.preventDefault();
 		// No database :(
 		
+		// Creates new Tee Time
 		const newTeeTime = { memberName, tee_Time, guests,  memberStatus };
 		console.log(newTeeTime)
+		// Mutates Tee Time list and adds new Tee time
+		setTTimeList( [ ...tTimeList, newTeeTime ] )
 
 		setMemberName("");
 		setTee_Time(0);
@@ -112,6 +115,7 @@ const handleMemberStatus = (e) => {
 				}
 				
 			</div>
+			
 			<button> Submit Tee Time Request</button>
 		</form>
 	
@@ -119,6 +123,33 @@ const handleMemberStatus = (e) => {
 
 	</fieldset>
 		
+		<table>
+			<thead><tr>
+				<th>Member Name</th>
+				<th>Tee Time</th>
+				<th>Number of Guests</th>
+				<th>Member Status</th>
+			</tr>
+			</thead>
+			<tbody>
+				
+					{
+						tTimeList.map(
+							(eachTTime, idx) => {
+								return(
+									<tr>
+										<td>{eachTTime.memberName}</td>
+										<td>{eachTTime.tee_Time}</td>
+										<td>{eachTTime.guests}</td>
+										<td>{eachTTime.memberStatus}</td>
+									</tr>
+								)
+							}
+						)
+					}
+
+			</tbody>
+		</table>
 	</>
   )
 }
