@@ -58,7 +58,12 @@ const handleMemberStatus = (e) => {
 	setMemberStatus(e.target.value)
 };
 	
-
+const deleteHandler = (deleteIdx) => {
+	const filterList = tTimeList.filter(
+		(tTime, idx) => idx !== deleteIdx
+	)
+	setTTimeList(filterList);
+}
   return (
 	<>
 	<fieldset>
@@ -103,11 +108,10 @@ const handleMemberStatus = (e) => {
 			}
 			<div>
 				<label>Member Status:  </label>
-				<input 
-				type="text" 
-				name="memberStatus" 
-				value={memberStatus} 
-				onChange={handleMemberStatus} />
+				<select name="memberStatus" value={memberStatus} onChange={handleMemberStatus}>
+					<option value={"true"}>True</option>
+					<option value={"false"}>False</option>
+				</select>
 				{memberStatus !== true ?
 				<p style={{color: "red"}}> You must be in good standing to play.</p> :
 				<></>
@@ -123,12 +127,13 @@ const handleMemberStatus = (e) => {
 
 	</fieldset>
 		
-		<table>
+		<table border="1">
 			<thead><tr>
-				<th>Member Name</th>
-				<th>Tee Time</th>
-				<th>Number of Guests</th>
-				<th>Member Status</th>
+				<th> Member Name </th>
+				<th> Tee Time </th>
+				<th> Number of Guests </th>
+				<th> Member Status </th>
+				<th> Actions </th>
 			</tr>
 			</thead>
 			<tbody>
@@ -137,11 +142,12 @@ const handleMemberStatus = (e) => {
 						tTimeList.map(
 							(eachTTime, idx) => {
 								return(
-									<tr>
+									<tr key={idx}>
 										<td>{eachTTime.memberName}</td>
 										<td>{eachTTime.tee_Time}</td>
 										<td>{eachTTime.guests}</td>
 										<td>{eachTTime.memberStatus}</td>
+										<td><button onClick={ () => deleteHandler(idx)}>Delete Tee Time</button></td>
 									</tr>
 								)
 							}
